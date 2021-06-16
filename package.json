@@ -1,0 +1,22 @@
+{
+  "name": "notebook",
+  "version": "1.0.0",
+  "description": "Similar to Toda List",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amitabh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "consolidate": "*",
+    "dotenv": "^10.0.0",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "pg": "^8.6.0",
+    "pg-pool": "^3.3.0"
+  }
+}

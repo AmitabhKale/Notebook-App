@@ -1,0 +1,111 @@
+{>"layout" /}
+
+{<body}
+    <div class="d-grid gap-2">
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#formModal">
+    Add Notes
+    </button>
+    </div>
+    <br>
+
+  {#notes}
+      <br>
+      <div class="card">
+              <h4> {name}
+                <button class="btn btn-info float-end"
+                data-bs-toggle="collapse" href="#notes_{id}" role="button" aria-expanded="false" aria-controls="notes_{id}">
+                View
+                </button>
+              </h4>
+
+            <div class="collapse" id="notes_{id}">
+                <br>
+                <br>
+                <p> <strong>Descriptions : </strong> {desciptions}</p>
+                <p> <strong>More Info</strong> {directions}</p>
+                <br>
+                <hr>
+                <button class="btn btn-warning edit-notes"
+                data-bs-toggle="modal"
+                data-bs-target="#editFormModal"
+                data-id="{id}"
+                data-name="{name}"
+                data-desciptions="{desciptions}"
+                data-directions="{directions}"
+                >Edit</button>
+                <button class="btn btn-danger float-end delete-notes" data-id="{id}">Delete</button>
+
+            </div>
+      </div>
+      <br>
+  {/notes}
+
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <form class="" action="/add" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Notes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea  class="form-control" name="desciptions"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Key Points</label>
+            <textarea  class="form-control" name="directions"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary"  value="Save"/>
+        </div>
+        </form>
+      </div>
+  </div>
+</div>
+
+
+<!-- Edit Form Modals -->
+<div class="modal fade" id="editFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <form class="" action="/edit" method="post">
+            <input type="hidden" id="edit-form-id" name="id">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Notes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" id="edit-form-name" />
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea  class="form-control" name="desciptions" id="edit-form-desciptions"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Key Points</label>
+            <textarea  class="form-control" name="directions" id="edit-form-directions"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary"  value="Save"/>
+        </div>
+        </form>
+      </div>
+  </div>
+</div>
+{/body}
